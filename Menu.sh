@@ -1,35 +1,40 @@
 #!/bin/bash
 
-echo " Select what action you would like to take"
-echo "1. Install HANA DB"
-echo "2. Deploy EMP-MDS Plugin"
-echo "3. Create New Tenant DB"
-echo "4. Create password policy"
-echo "5. XSE in tenant and configure https"
-echo "6. Stop Tenant"
-echo "7. Drop DB"
-echo "8. Uninstall HANA"
-echo "9. Exit"
+echo "Installing Docker"
+./docker.sh
 
-echo -n "Enter your menu choice [1-9]: "
+echo " Select what action you would like to take"
+echo "1. Install HANA DB with EPM-MDS Plugin"
+echo "2. Create New Tenant DB"
+echo "3. Embed XSE in tenant and configure https"
+echo "4. Stop Tenant"
+echo "5. Drop DB"
+echo "6. Uninstall HANA"
+echo "7. Exit"
+
+echo -n "Enter your menu choice [1-7]: "
 while :
 do
 read choice
 
 case $choice in
-1)  
+1)  sudo ./setup_script.sh 
   # Pattern 2
-  2)  echo "You have selected the option 2"
-      echo "Selected Fruit is Grapes. ";;
+  2)  sudo ./HANAservice.sh
   # Pattern 3
-  3)  echo "You have selected the option 3"
-      echo "Selected Fruit is Mango. ";;    
+  3)  sudo ./embedXSE.sh
+      sudo ./signedcer.sh
   # Pattern 4
-  9)  echo "Exiting ..."
+  4) sudo ./Stoptenant.sh
+  # Pattern 5
+  5) sudo ./dropdb.sh
+  # Pattern 6
+  6) sudo ./uninstall.sh
+  7)  echo "Exiting ..."
       exit;;
   # Default Pattern
   *) echo "invalid option";;
   
 esac
-  echo -n "Enter your menu choice [1-9]: "
+  echo -n "Enter your menu choice [1-7]: "
 done
