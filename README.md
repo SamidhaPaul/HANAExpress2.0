@@ -12,10 +12,10 @@ Pre-req:
 2. To host these virtual boxes for HANA DB your PC needs to have atleast 16 GB of RAM and virtualisation should be enabled in BIOS for your PC.
 3. Docker has to be installed in your virtual box by using the script docker.sh
 
-The main application here is Menu.sh which provides the user all the catalog options mentioned in the case study.
+The main application here is Menu.sh which provides the user all the catalog options mentioned in the case study. Here we have installed the latest HANA Expressi version i.e. HANA 2.0 Revision 57
 
 1. HANA DB with EPM-MDS plugin will be installed by HANAsetup.sh script
-2. Tenant DB will be created by HANAservice.sh by calling commands.sql file
+2. Tenant DB TST will be created by HANAservice.sh by calling commands.sql file
 3. HANA DB by default has password policy of min length 8 characters from the four categories, including: uppercase letters, lowercase letters, numbers, and characters 
 4. XSE will be embedded in the tenant by the script embedXSE.sh by calling embedXSE.sql and https will be configured on the XSE by using the script signedcer.sh
 5. Tenant DB will be stopped by the script Stoptenant.sh by calling Stoptenant.sql
