@@ -18,7 +18,7 @@ do
 read choice
 
 case $choice in
-1)  sudo ./setup_script.sh 
+1)  sudo ./HANAsetup.sh 
   # Pattern 2
   2)  sudo ./HANAservice.sh
   # Pattern 3
